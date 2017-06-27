@@ -1,3 +1,4 @@
+document.writeln('<scr'+'ipt type="text/javascript" src="cookie.js" ></scr'+'ipt>');
 var _prot = "",
     _host = "",
     _path = "",
