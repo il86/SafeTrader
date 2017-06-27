@@ -449,7 +449,7 @@ function lbcSelectPage() {
 		document.body.innerHTML.match(/nav\-logged\-in/gi) ? !0 : !1, _page = "", _prot = sProtocol, _host = sSiteDomain, _path = sPath, _args = sArgs, _path.match(/^\/?$|^\/(es|fr|it|ru|pt-br|zh-cn)\/$/g) ? _page = "MENU_HOME" : _path.match(/^\/buy_bitcoins/g) ? _page = "MENU_BUY_LIST" : _path.match(/^\/sell_bitcoins/g) ? _page = "MENU_SELL_LIST" : _path.match(/^\/buy-bitcoins-online\/?/g) ? _page = "PAGE_BUY_ONLINE_ALL" : _path.match(/^\/buy-bitcoins-with-cash\/?/g) ? _page = "PAGE_BUY_LOCAL_ALL" : _path.match(/^\/sell-bitcoins-online\/?/g) ? _page = "PAGE_SELL_ONLINE_ALL" :
 		_path.match(/^\/sell-bitcoins-for-cash\/?/g) ? _page = "PAGE_SELL_LOCAL_ALL" : document.body.innerHTML.match(/Results for buying bitcoins online/g) ? _page = "SEARCH_BUY_ONLINE" : document.body.innerHTML.match(/Results for buying bitcoins with cash near/g) ? _page = "SEARCH_BUY_LOCAL" : document.body.innerHTML.match(/Results for selling bitcoins online/g) ? _page = "SEARCH_SELL_ONLINE" : document.body.innerHTML.match(/Results for selling bitcoins for cash near/g) ? _page = "SEARCH_SELL_LOCAL" : _path.match(/^\/p\/[^\/]+\/$/g) ?
 		(_page = "PAGE_PROFILE", _user = _path.split("/")[2]) : _path.match(/^\/(accounts\/profile)\/[^\/]+\/$/g) ? (_page = "PAGE_PROFILE", _user = _path.split("/")[3]) : _path.match(/^\/accounts\/profile\/[^\/]+\/feedback/g) ? (_page = "PAGE_FEEDBACK", _user = _path.split("/")[3], _feedbackType = _path.split("/")[4]) : _path.match(/(^\/contact\/[^\/]*\/?$)|(^\/ads\/\d+\/\d+\/?$)/gi) ? _page = "PAGE_AD" : _path.match(/(^\/advertise\/?$)/gi) && (_page = "PAGE_ADVERTISE"), lbcSelectPage())
-	}
+	});
 })(jQuery);
 
 function lbcUnsupportedPage() {
