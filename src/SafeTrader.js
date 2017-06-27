@@ -192,6 +192,7 @@ restorejs = function(obj) {
 
 js.include('cookie');
 js.include('UI.general.jqueryUI');
+js.include('UI.chartUI');
 js.include('users.functions.changeCurrency');
 
 var _prot = "",
