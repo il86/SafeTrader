@@ -1,5 +1,3 @@
-js.include('UI.chartUI');
-
 function lbcShowChart() {
     document.getElementById("lbcChart") && document.getElementById("chartCurrency") && document.getElementById("lbcChartImg") && (_settings.showCurrencyChart ? ($("#lbcChart").css("display", "table-cell"), $("#lbcChart").css("opacity", 0), $("#lbcChart").animate({
         opacity: 1,
