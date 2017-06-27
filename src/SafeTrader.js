@@ -355,6 +355,7 @@ function lbcAttentionRequired() {
     alert("Please complete security check and then run script again!")
 }
 
+(function ($) {
 function lbcSelectPage() {
     console.log(_page);
     document.getElementById("navbar-site").style.transition = "background 0.5s";
@@ -441,6 +442,7 @@ function lbcSelectPage() {
     //lbcReplaceLinks();
     lbcBlurNicks(document.body)
 }
+})(jQuery);
 
 //lbcGetPageInfo();
 (function ($) {
