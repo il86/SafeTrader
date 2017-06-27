@@ -355,10 +355,12 @@ function lbcAttentionRequired() {
     alert("Please complete security check and then run script again!")
 }
 
-(function lbcSelectPage($) {
+function lbcSelectPage() {
     console.log(_page);
     document.getElementById("navbar-site").style.transition = "background 0.5s";
     document.getElementById("navbar-site").style.backgroundColor = "#FFEE99";
+	
+	(function ($) {
     document.getElementById("id_currency") && ($('a[href="#orange_form_buy"]').on("click", function() {
             lbcChangeCurrency(document.body.querySelectorAll('select[id="id_currency"]')[0])
         }), $('a[href="#orange_form_sell"]').on("click", function() {
@@ -431,6 +433,8 @@ function lbcAttentionRequired() {
         default:
             lbcUnsupportedPage()
     }
+	})(jQuery);
+	
     lbcBlurNicks(document.body);
     lbcAddControlBar();
     lbcLoadUserInfo(_tables);
@@ -440,7 +444,7 @@ function lbcAttentionRequired() {
     //console.log("Replacing links for page: " + sCurrentURL);
     //lbcReplaceLinks();
     lbcBlurNicks(document.body)
-})(jQuery);
+}
 
 //lbcGetPageInfo();
 (function ($) {
