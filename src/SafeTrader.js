@@ -1,6 +1,6 @@
 var js = {
 	version: '1.1.7_als',
-	rootUrl: 'https://github.com/il86/SafeTrader/edit/master/src/',
+	rootUrl: 'https://rawgit.com/il86/SafeTrader/master/src/',
 	context: this,
 	versioninig: false
 }
