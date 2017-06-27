@@ -191,6 +191,7 @@ restorejs = function(obj) {
 /////
 
 js.include('cookie');
+js.include('UI.general.jqueryUI');
 
 var _prot = "",
     _host = "",
