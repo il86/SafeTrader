@@ -451,7 +451,8 @@ function lbcSelectPage() {
     lbcBlurNicks(document.body)
 }
 
-lbcGetPageInfo();
+//lbcGetPageInfo();
+$(document).ready(lbcGetPageInfo);
 
 function lbcUnsupportedPage() {
     alert("No available functions for this page.")
