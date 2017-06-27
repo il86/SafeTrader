@@ -452,7 +452,9 @@ function lbcSelectPage() {
 }
 
 //lbcGetPageInfo();
-$(document).ready(lbcGetPageInfo);
+(function ($) {
+	$(document).ready(lbcGetPageInfo);
+})(jQuery);
 
 function lbcUnsupportedPage() {
     alert("No available functions for this page.")
