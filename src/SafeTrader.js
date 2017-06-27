@@ -355,8 +355,7 @@ function lbcAttentionRequired() {
     alert("Please complete security check and then run script again!")
 }
 
-(function ($) {
-function lbcSelectPage() {
+(function lbcSelectPage($) {
     console.log(_page);
     document.getElementById("navbar-site").style.transition = "background 0.5s";
     document.getElementById("navbar-site").style.backgroundColor = "#FFEE99";
@@ -441,7 +440,6 @@ function lbcSelectPage() {
     //console.log("Replacing links for page: " + sCurrentURL);
     //lbcReplaceLinks();
     lbcBlurNicks(document.body)
-}
 })(jQuery);
 
 //lbcGetPageInfo();
