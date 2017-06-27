@@ -188,7 +188,7 @@ restorejs = function(obj) {
 	}
 }(js);
 
-////
+/////
 
 js.include('cookie');
 
