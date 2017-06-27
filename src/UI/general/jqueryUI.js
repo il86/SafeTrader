@@ -4,7 +4,7 @@ function lbcJQueryEffects() {
         var a = document.createElement("script");
         a.async = !1;
         a.src = _prot + "//code.jquery.com/jquery-1.12.4.js";
-        document.body.appendChild(a)
+        document.body.appendChild(a);
         
         console.log("LOADING JQUERY EFFECT STUFF..");
         var b = document.createElement("script");
