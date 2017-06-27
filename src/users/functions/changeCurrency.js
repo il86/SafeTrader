@@ -1,3 +1,5 @@
+js.include('UI.chartUI');
+
 function lbcChangeFilterCurrency(a) {
     document.getElementById("limitCurrency") && ("BTC" != document.getElementById("limitCurrency").innerHTML && (document.getElementById("limitCurrency").innerHTML = a), document.getElementById("limitCurrencyList").innerHTML = a)
 }
