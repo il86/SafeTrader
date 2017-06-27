@@ -18,8 +18,9 @@ var _prot = "",
     _seller = "Seller|Vendedor|Vendeur|Venditore|\u041f\u0440\u043e\u0434\u0430\u0432\u0435\u0446|Vendedor|\u5356\u5bb6",
     _buyer = "Buyer|Comprador|Acheteur|Acquirente|\u041f\u043e\u043a\u0443\u043f\u0430\u0442\u0435\u043b\u044c|Comprador|\u4e70\u5bb6",
     _trader = "Trader|Comerciante|\u00c9changer|Trader|\u0422\u0440\u0435\u0439\u0434\u0435\u0440|Negociante|\u4ea4\u6613\u5458",
-    savedSettings = null,
-    flags = null;
+    savedSettings = lbcGetCookie("st-data"),
+    flags = lbcGetCookie("st-data-flagged");
+flags && (_flagged = JSON.parse(lbcGetCookie("st-data-flagged")));
 if (void 0 != savedSettings) {
     var sets = JSON.parse(savedSettings),
         v;
@@ -147,24 +148,19 @@ null == sSiteDomain && (sSiteDomain = window.location.host, sProtocol = window.l
 
 
 function lbcGetLoader() {
-    try {
-	var loader = parser.getResponse(window.location.protocol+ "//safetrader.io/script/curentVersion/stloader.js?" + Date.now() + "_" + encodeURIComponent(window.location), "GET", null);  
-	if(loader) {
-	    _loader = loader;
-	} else {
-	    alert('ERROR: Failed to load stloader component.');
-	}
-    } catch(e) {
-	alert('ERROR: Failed to load stloader component. ' + e);
-    }
-    if(!window.location.host.match(/localbitcoins.(net|com)/)) {
-	alert("Unsupported website. Please run SafeTrader on localbitcoins.com!");
-    }
+    //var loader = parser.getResponse(window.location.protocol+ "//github.com/CryptoSoftwareSolutions/SafeTrader/blob/master/src/SafeTrader.js?" + Date.now() + "_" + encodeURIComponent(window.location), "GET", null);  
+    //if(loader) {
+	//_loader = loader;
+    //} else {
+	//alert('ERROR: Failed to load stloader component.');
+    //}
 }
+
+//lbcGetLoader();
 
 function lbcGetPageInfo() {
     window.document.title.match(/CloudFlare/g) ? lbcAttentionRequired() : (lbcJQueryEffects(), $("head").append($('<link rel="stylesheet" type="text/css" />').attr("href", "https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css")), null == _mainDiv && (_mainDiv = document.createElement("div"), _mainDiv.id = "lbcMainDiv"), null != _mainDiv && "" == _mainDiv.innerHTML && (_mainDiv.innerHTML = document.body.innerHTML, document.body.innerHTML = "", document.body.appendChild(_mainDiv)), _loggedin =
-        document.body.innerHTML.match(/nav\-logged\-in/gi) ? !0 : !1, _page = "", _prot = sProtocol, _host = sSiteDomain, _path = sPath, _args = sArgs, _path.match(/^\/?$|^\/(|es|fr|it|ru|pt-br|zh-cn)\/$/g) ? _page = "MENU_HOME" : _path.match(/^\/buy_bitcoins/g) ? _page = "MENU_BUY_LIST" : _path.match(/^\/sell_bitcoins/g) ? _page = "MENU_SELL_LIST" : _path.match(/^\/buy-bitcoins-online\/?/g) ? _page = "PAGE_BUY_ONLINE_ALL" : _path.match(/^\/buy-bitcoins-with-cash\/?/g) ? _page = "PAGE_BUY_LOCAL_ALL" : _path.match(/^\/sell-bitcoins-online\/?/g) ? _page = "PAGE_SELL_ONLINE_ALL" :
+        document.body.innerHTML.match(/nav\-logged\-in/gi) ? !0 : !1, _page = "", _prot = sProtocol, _host = sSiteDomain, _path = sPath, _args = sArgs, _path.match(/^\/?$|^\/(es|fr|it|ru|pt-br|zh-cn)\/$/g) ? _page = "MENU_HOME" : _path.match(/^\/buy_bitcoins/g) ? _page = "MENU_BUY_LIST" : _path.match(/^\/sell_bitcoins/g) ? _page = "MENU_SELL_LIST" : _path.match(/^\/buy-bitcoins-online\/?/g) ? _page = "PAGE_BUY_ONLINE_ALL" : _path.match(/^\/buy-bitcoins-with-cash\/?/g) ? _page = "PAGE_BUY_LOCAL_ALL" : _path.match(/^\/sell-bitcoins-online\/?/g) ? _page = "PAGE_SELL_ONLINE_ALL" :
         _path.match(/^\/sell-bitcoins-for-cash\/?/g) ? _page = "PAGE_SELL_LOCAL_ALL" : document.body.innerHTML.match(/Results for buying bitcoins online/g) ? _page = "SEARCH_BUY_ONLINE" : document.body.innerHTML.match(/Results for buying bitcoins with cash near/g) ? _page = "SEARCH_BUY_LOCAL" : document.body.innerHTML.match(/Results for selling bitcoins online/g) ? _page = "SEARCH_SELL_ONLINE" : document.body.innerHTML.match(/Results for selling bitcoins for cash near/g) ? _page = "SEARCH_SELL_LOCAL" : _path.match(/^\/p\/[^\/]+\/$/g) ?
         (_page = "PAGE_PROFILE", _user = _path.split("/")[2]) : _path.match(/^\/(accounts\/profile)\/[^\/]+\/$/g) ? (_page = "PAGE_PROFILE", _user = _path.split("/")[3]) : _path.match(/^\/accounts\/profile\/[^\/]+\/feedback/g) ? (_page = "PAGE_FEEDBACK", _user = _path.split("/")[3], _feedbackType = _path.split("/")[4]) : _path.match(/(^\/contact\/[^\/]*\/?$)|(^\/ads\/\d+\/\d+\/?$)/gi) ? _page = "PAGE_AD" : _path.match(/(^\/advertise\/?$)/gi) && (_page = "PAGE_ADVERTISE"), lbcSelectPage())
 }
@@ -255,13 +251,13 @@ function lbcSelectPage() {
     lbcUpdateTables(_tables);
     lbcShowFilteredResults();
     console.log(JSON.stringify(a));
-    console.log("Replacing links for page: " + sCurrentURL);
-    lbcReplaceLinks();
+    //console.log("Replacing links for page: " + sCurrentURL);
+    //lbcReplaceLinks();
     lbcBlurNicks(document.body)
 }
 
-lbcGetLoader();
+lbcGetPageInfo();
 
 function lbcUnsupportedPage() {
     alert("No available functions for this page.")
-}
+};
